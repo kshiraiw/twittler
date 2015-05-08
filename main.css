@@ -1,0 +1,74 @@
+body {
+	font: 16px/20px Arial;
+	margin: -10px 0 -20px 0;
+	background: #eee;
+}
+
+nav {
+	background: steelblue;
+	height: 50px;
+}
+ul {
+	list-style-type: none;
+	color: white;
+}
+
+ul li, ul li:first-of-type {
+	display: inline-block;
+	margin: 10px;
+	float: left;
+}
+
+ul li {
+	float: right;
+}
+
+ul li:nth-of-type(2) {
+	padding-right: 70px;
+}
+button {
+	width: 50%;
+	height: 4em;
+	border-radius: 5px;
+	font-size: 14px;
+	color: #888;
+	margin: 20px auto;
+	display: block;
+	font-style: bold;
+	background: linear-gradient(45deg, lightblue, #eee);
+}
+
+.tweet {
+	border: 1px solid black;
+	text-align: center;
+	margin: 0 auto;
+	width: 50%;
+	position: relative;
+	background: #fff;
+}
+
+.tweet img {
+	height: 50%;
+	max-width: 100%;
+	position: absolute;
+	left: 10%;
+	top: 25%;
+}
+
+.tweet:first-of-type {
+	border-radius: 5px 5px 0 0;
+}
+
+.clearfix:after {
+     visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+     }
+.clearfix { display: inline-block; }
+/* start commented backslash hack \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* close commented backslash hack */

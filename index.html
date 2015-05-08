@@ -3,24 +3,73 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" href="main.css">
   </head>
   <body>
+    <nav>
+      <ul class="clearfix">
+        <li class="home">Home</li>
+      </ul>
+    </nav>
+    <button>Load more tweets...</button>
+    <div class="tweets"></div>
+
     <script>
-
       $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
+        var $tweets = $('.tweets');
+        $tweets.html('');
 
+        getTweets($tweets);
+        $('button').on('click', function(e) {
+          e.preventDefault();
+          getTweets();
+        });
+
+        loadNav();
+        
+        $('.home').on('click', function() {
+          getTweets();
+        });
+
+        $('body').on('click', '.name', function() {
+          getUserTweets($(this).data('name'));
+        });
+      });
+
+      var loadNav = function() {
+        var $ul = $('ul');
+        for (var user in streams.users) {
+          $ul.append('<li class="name" data-name=' + user + '>@' + user + '</li>');
+        }
+      }
+
+      var getTweets = function() {
+        $('.tweets').html('');
         var index = streams.home.length - 1;
         while(index >= 0){
           var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
+          makeTweet(tweet);
           index -= 1;
         }
+      }
 
-      });
+      var getUserTweets = function(user) {
+        var userTweets = streams.users[user];
+        $('.tweets').html(" ");
+        var index = userTweets.length - 1;
+        while(index >= 0) {
+          var tweet = userTweets[index];
+          makeTweet(tweet);
+          index -= 1;
+        }
+      }
+
+      var makeTweet = function(tweet) {
+         var $tweet = $('<div class="tweet"></div>');
+        $tweet.html('<img src="' + tweet.image + '"><h3 class="name" data-name=' + tweet.user + '>@' + tweet.user + '</h3><p>' + tweet.message + "</p><small>" + tweet.created_at + "</small>");
+        $tweet.appendTo($('.tweets'));
+      }
+      
 
     </script>
   </body>
