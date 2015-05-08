@@ -1,48 +1,70 @@
 body {
 	font: 16px/20px Arial;
-	margin: -10px 0 -20px 0;
-	background: #eee;
+	margin: -2% -2% 0 0;
+	background: #333;
+	position: relative;
 }
 
 nav {
 	background: steelblue;
-	height: 50px;
+	height: 10%;
+	position: fixed;
+	width: 100%;
+	z-index: 1;
+	background: linear-gradient(steelblue, gray);
 }
+
+.home {
+	font-size: 20px;
+	color: white;
+	padding: 1.5% 3.5%;
+}
+
 ul {
 	list-style-type: none;
-	color: white;
+	color: black;
+	position: fixed;
+	top: 30%;
+	left: 7%;
+	background: white;
+	padding: 0;
+	border-radius: 5px;
+	width: 30%;
 }
 
-ul li, ul li:first-of-type {
-	display: inline-block;
-	margin: 10px;
-	float: left;
+li {
+	box-sizing: border-box;
+	border: 1px solid black;
+	width: 100%;
+	font-weight: bold;
+	padding: 5%;
 }
 
-ul li {
-	float: right;
-}
-
-ul li:nth-of-type(2) {
-	padding-right: 70px;
-}
 button {
-	width: 50%;
+	float: left;
+	width: 30%;
+	position: fixed;
+	top: 14.5%;
+	left: 100px;
 	height: 4em;
 	border-radius: 5px;
-	font-size: 14px;
-	color: #888;
+	font-size: 16px;
+	color: #f0f0f0;
 	margin: 20px auto;
 	display: block;
 	font-style: bold;
-	background: linear-gradient(45deg, lightblue, #eee);
+	background: radial-gradient(teal, lightblue);
 }
 
+.tweets {
+	float: right;
+	width: 50%;
+	margin: 10% 5%;
+}
 .tweet {
 	border: 1px solid black;
 	text-align: center;
 	margin: 0 auto;
-	width: 50%;
 	position: relative;
 	background: #fff;
 }
@@ -55,8 +77,20 @@ button {
 	top: 25%;
 }
 
-.tweet:first-of-type {
+.tweet:first-of-type, li:first-of-type {
 	border-radius: 5px 5px 0 0;
+}
+
+.tweet:last-of-type, li:last-of-type {
+	border-radius: 0 0 5px 5px;
+}
+
+footer {
+	background: #fff;
+	color: white;
+	height: 40px;
+	width: 100%;
+	z-index: 2;
 }
 
 .clearfix:after {
